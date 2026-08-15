@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h1 class="text-3xl font-serif mb-10">零散思考 · 时间线</h1>
+<div class="border-l-2 border-slate-300 dark:border-slate-700 pl-6 space-y-8">
+{{ range .Data.Pages.ByDate.Reverse }}
+<div>
+  <div class="text-xs text-slate-500">{{ .Date.Format "2006-01-02" }}</div>
+  <p class="mt-1">{{ .Summary }}</p>
+  {{ if .Title }}
+  <a href="{{ .RelPermalink }}" class="text-tech dark:text-humanity text-sm">阅读全文 →</a>
+  {{ end }}
+</div>
+{{ end }}
+</div>
+{{ end }}
+{{ extend "baseof.html" }}
