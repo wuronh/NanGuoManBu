@@ -1,0 +1,44 @@
+@layer base {
+  :root {
+    --tech: #165D7A;
+    --humanity: #A67C52;
+    --bg-light: #f8fafc;
+    --bg-dark: #0f1720;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  .bg-grid {
+    background-image: radial-gradient(rgba(22,93,122,0.12) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .link-hover {
+    position: relative;
+  }
+  .link-hover::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--tech);
+    transition: width .3s ease;
+  }
+  .dark .link-hover::after {
+    background-color: var(--humanity);
+  }
+  .link-hover:hover::after {
+    width: 100%;
+  }
+  @keyframes fadeIn {
+    from {opacity:0;transform:translateY(12px);}
+    to {opacity:1;transform:translateY(0);}
+  }
+  .animate-fade {
+    animation: fadeIn .7s ease-out;
+  }
+}
