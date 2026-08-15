@@ -1,0 +1,6 @@
+name = "boundary-scene"
+license = "MIT"
+description = "人文科技博客主题：边界与图景，面向社会科学、机器人技术、城市人文"
+homepage = ""
+tags = ["blog","tailwind","dark-mode","chinese"]
+features = ["dark mode","responsive","rss","timeline"]
