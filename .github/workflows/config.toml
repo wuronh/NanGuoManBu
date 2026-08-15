@@ -1,0 +1,47 @@
+baseURL = "https://wuronh.github.io/"
+languageCode = "zh-CN"
+title = "边界与图景"
+copyright = "© 2026 边界与图景 | 社科 · 机器人 · 城市人文"
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+[params]
+description = "在机器人算法秩序与城市人文褶皱之间，探寻社会科学的解释图景。分享机器人技术、城市观察、社会理论随笔。"
+author = "wuronh"
+colorTech = "#165D7A"
+colorHumanity = "#A67C52"
+
+enableDarkMode = true
+enableSearch = false
+enableRSS = true
+
+[params.giscus]
+enable = false
+repo = "wuronh/wuronh.github.io"
+repoId = ""
+category = "Comments"
+categoryId = ""
+
+[menu]
+[[menu.main]]
+name = "首页"
+url = "/"
+weight = 1
+[[menu.main]]
+name = "文章"
+url = "/posts/"
+weight = 2
+[[menu.main]]
+name = "分类"
+url = "/categories/"
+weight = 3
+[[menu.main]]
+name = "随笔时间线"
+url = "/timeline/"
+weight = 4
+[[menu.main]]
+name = "关于"
+url = "/about/"
+weight = 5
