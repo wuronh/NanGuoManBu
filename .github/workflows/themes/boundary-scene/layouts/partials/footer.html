@@ -1,0 +1,12 @@
+<footer class="border-t border-slate-200 dark:border-slate-800 mt-12">
+  <div class="max-w-5xl mx-auto px-5 py-8 text-center text-sm text-slate-500">
+    <p>{{ .Site.Copyright }}</p>
+    {{ if .Site.Params.enableRSS }}
+    <p class="mt-2">
+      <a href="{{ .Site.RSSLink }}" class="hover:text-tech dark:hover:text-humanity">RSS 订阅</a>
+    </p>
+    {{ end }}
+  </div>
+</footer>
+{{- $js := resources.Get "js/main.js" | resources.Minify -}}
+<script src="{{ $js.RelPermalink }}"></script>
