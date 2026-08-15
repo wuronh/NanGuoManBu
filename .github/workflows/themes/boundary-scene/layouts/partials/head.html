@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+{{- $css := resources.Get "css/custom.css" | resources.Minify -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ if .Site.Params.enableRSS }}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.RSSLink }}">
+{{ end }}
+<script>
+tailwind.config={
+  darkMode:'class',
+  theme:{
+    extend:{
+      colors:{
+        tech:'#165D7A',
+        humanity:'#A67C52',
+        darkbg:'#0f1720'
+      },
+      fontFamily:{
+        sans:['Inter','system-ui','sans-serif'],
+        serif:['"Noto Serif SC"','serif']
+      }
+    }
+  }
+}
+</script>
