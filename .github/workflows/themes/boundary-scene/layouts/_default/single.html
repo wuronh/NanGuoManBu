@@ -1,0 +1,37 @@
+{{ define "main" }}
+<article>
+  <h1 class="text-3xl font-serif mb-4">{{ .Title }}</h1>
+  <div class="text-sm text-slate-500 mb-8">
+    {{ .Date.Format "2006-01-02" }}
+    {{ with .Params.categories }} · {{ delimit . " / " }}{{ end }}
+  </div>
+  <div class="prose dark:prose-invert max-w-none prose-slate
+  prose-headings:font-serif
+  prose-a:text-tech dark:prose-a:text-humanity
+  prose-code:before:content-none prose-code:after:content-none">
+    {{ .Content }}
+  </div>
+</article>
+
+{{ if .Site.Params.giscus.enable }}
+<div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800">
+  <h3 class="text-xl mb-6">评论</h3>
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ .Site.Params.giscus.repo }}"
+    data-repo-id="{{ .Site.Params.giscus.repoId }}"
+    data-category="{{ .Site.Params.giscus.category }}"
+    data-category-id="{{ .Site.Params.giscus.categoryId }}"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+{{ end }}
+{{ end }}
+{{ extend "baseof.html" }}
