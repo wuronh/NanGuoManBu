@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1 class="text-3xl font-serif mb-8">{{ .Title }}</h1>
+{{ .Content }}
+<div class="space-y-8 mt-10">
+{{ range .Pages.ByDate.Reverse }}
+<article class="group">
+  <h2 class="text-xl group-hover:text-tech dark:group-hover:text-humanity">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h2>
+  <div class="text-sm text-slate-500 mt-1">{{ .Date.Format "2006-01-02" }}</div>
+  <p class="text-slate-600 dark:text-slate-400 mt-2">{{ .Summary }}</p>
+</article>
+{{ end }}
+</div>
+{{ end }}
+{{ extend "baseof.html" }}
