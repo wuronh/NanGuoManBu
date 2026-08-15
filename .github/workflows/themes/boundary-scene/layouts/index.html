@@ -1,0 +1,64 @@
+{{ define "main" }}
+<section class="py-16 md:py-24">
+  <h1 class="text-[clamp(2rem,5vw,3.2rem)] font-serif leading-relaxed text-balance">
+    在机器人的算法秩序<br/>
+    与城市的人文褶皱之间<br/>
+    探寻社会科学的解释图景
+  </h1>
+  <p class="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl text-lg leading-relaxed">
+    技术重塑社会，城市承载生活，理论照亮现实。这里记录机器人技术观察、都市空间思考、社会理论阅读与现实随笔。
+  </p>
+  <div class="mt-10 flex flex-wrap gap-4">
+    <a href="/posts/" class="px-6 py-2.5 bg-tech text-white rounded hover:opacity-90 transition">浏览文章</a>
+    <a href="/about/" class="px-6 py-2.5 border border-slate-400 rounded hover:bg-slate-200 dark:hover:bg-slate-800 transition">了解本站</a>
+  </div>
+</section>
+
+<section id="category" class="py-16 border-t border-slate-200 dark:border-slate-800">
+  <h2 class="text-2xl font-serif mb-10">内容领域</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="p-6 rounded-xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition border border-slate-100 dark:border-slate-800">
+      <div class="text-tech text-2xl mb-4"><i class="fa fa-robot"></i></div>
+      <h3 class="text-lg font-medium mb-2">机器人技术</h3>
+      <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">人形机器人、运动控制、AI机器人融合、自动化伦理、服务机器人前沿观察。</p>
+    </div>
+    <div class="p-6 rounded-xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition border border-slate-100 dark:border-slate-800">
+      <div class="text-humanity text-2xl mb-4"><i class="fa fa-building-o"></i></div>
+      <h3 class="text-lg font-medium mb-2">城市人文</h3>
+      <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">都市行走、城市空间、社区变迁、建筑与日常生活、流动人群、城市文化观察。</p>
+    </div>
+    <div class="p-6 rounded-xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition border border-slate-100 dark:border-slate-800">
+      <div class="text-tech text-2xl mb-4"><i class="fa fa-book"></i></div>
+      <h3 class="text-lg font-medium mb-2">社会科学</h3>
+      <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">社会学、政治理论、思想史、技术社会学，理解数字化时代的人与社会。</p>
+    </div>
+  </div>
+</section>
+
+<section id="articles" class="py-16 border-t border-slate-200 dark:border-slate-800">
+  <div class="flex justify-between items-end mb-10">
+    <h2 class="text-2xl font-serif">最新随笔</h2>
+    <a href="/posts/" class="text-sm text-tech dark:text-humanity link-hover">全部文章 →</a>
+  </div>
+  <div class="space-y-8">
+    {{ $posts := where .Site.RegularPages "Section" "posts" | first 6 }}
+    {{ range $posts }}
+    <article class="group">
+      <div class="flex flex-col md:flex-row md:items-start gap-4">
+        <div class="md:w-2/3">
+          {{ with .Params.categories }}
+          <span class="text-xs px-2 py-0.5 rounded bg-tech/10 text-tech dark:bg-tech/20">{{ index . 0 }}</span>
+          {{ end }}
+          <h3 class="text-xl mt-2 group-hover:text-tech dark:group-hover:text-humanity transition">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400 line-clamp-2">{{ .Summary }}</p>
+          <div class="mt-3 text-xs text-slate-500">{{ .Date.Format "2006-01-02" }}</div>
+        </div>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ extend "baseof.html" }}
